@@ -11,7 +11,7 @@ class ObjcDiff < Formula
   depends_on :xcode => "10.0"
 
   bottle do
-    url "https://github.com/dreampiggy/objc-diff/releases/download/v0.4.2/objc-diff--0.4.2.mojave.bottle.tar.gz"
+    root_url "https://github.com/dreampiggy/objc-diff/releases/download/v0.4.2"
     sha256 "e86ae5dc480945e7675e50290d1ebe188ea17c11574db8801b71b8f394fb6b4c" => :mojave
   end
 
