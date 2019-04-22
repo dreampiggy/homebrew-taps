@@ -10,6 +10,11 @@ class ObjcDiff < Formula
   depends_on "llvm" => :build
   depends_on :xcode => "10.0"
 
+  bottle do
+    url "https://github.com/dreampiggy/objc-diff/releases/download/v0.4.2/objc-diff--0.4.2.mojave.bottle.tar.gz"
+    sha256 "e86ae5dc480945e7675e50290d1ebe188ea17c11574db8801b71b8f394fb6b4c" => :mojave
+  end
+
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
