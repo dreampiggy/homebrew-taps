@@ -4,15 +4,15 @@
 class ObjcDiff < Formula
   desc "objc-diff generates an API diff report for an Objective-C library, similar to those provided by Apple for the system frameworks. It assists library developers with providing their own diff report and verifying that no unexpected API changes have been made."
   homepage "http://codeworkshop.net/objc-diff"
-  url "https://github.com/dreampiggy/objc-diff/archive/v0.4.2.tar.gz"
-  sha256 "f1a8b66c22ecd7faa4902aca801dd0a90e8f75994dd41f995b2470a9edd404ee"
+  url "https://github.com/dreampiggy/objc-diff/archive/v0.5.0.tar.gz"
+  sha256 "ed44f71f01241281972c9303117495e0a30ee806848b294e89e6fe012c3dfc7d"
 
   depends_on "llvm" => :build
   depends_on :xcode => "10.0"
 
   bottle do
-    root_url "https://github.com/dreampiggy/objc-diff/releases/download/v0.4.2"
-    sha256 "e86ae5dc480945e7675e50290d1ebe188ea17c11574db8801b71b8f394fb6b4c" => :mojave
+    root_url "https://github.com/dreampiggy/objc-diff/releases/download/v0.5.0"
+    sha256 "30aea94f9e0faefe7afb4f2d87313c2c3ecd7164b6c5627fab15e8e66e43f4af" => :mojave
   end
 
   def install
