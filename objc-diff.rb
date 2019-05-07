@@ -4,26 +4,23 @@
 class ObjcDiff < Formula
   desc "objc-diff generates an API diff report for an Objective-C library, similar to those provided by Apple for the system frameworks. It assists library developers with providing their own diff report and verifying that no unexpected API changes have been made."
   homepage "http://codeworkshop.net/objc-diff"
-  url "https://github.com/dreampiggy/objc-diff/archive/v0.5.0.tar.gz"
-  sha256 "ed44f71f01241281972c9303117495e0a30ee806848b294e89e6fe012c3dfc7d"
+  url "https://github.com/dreampiggy/objc-diff.git", :using => :git, :tag => 'v0.5.1'
 
   depends_on "llvm" => :build
   depends_on :xcode => "10.0"
 
   bottle do
-    root_url "https://github.com/dreampiggy/objc-diff/releases/download/v0.5.0"
-    sha256 "30aea94f9e0faefe7afb4f2d87313c2c3ecd7164b6c5627fab15e8e66e43f4af" => :mojave
+    root_url "https://github.com/dreampiggy/objc-diff/releases/download/v0.5.1"
+    sha256 "3362de400a9ee569e6030188ee54459d7a95b0061359273107172989a8393482" => :mojave
   end
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "xcodebuild", "-project", "OCDiff.xcodeproj", "-target", "OCDiff"
-    bin.install "build/Release/objc-diff"
-    bin.install "build/Release/ObjectDoc.framework"
-    man.install "build/Release/objc-diff.1"
-    # system "cmake", ".", *std_cmake_args
-    # system "make", "install" # if this fails, try separate make/make install steps
+    system "xcodebuild", "-project", "OCDiff.xcodeproj", "-scheme", "OCDiff", "-configuration", "Release", "-derivedDataPath", "DerivedData"
+    bin.install "DerivedData/Build/Products/Release/objc-diff"
+    bin.install "DerivedData/Build/Products/Release/ObjectDoc.framework"
+    man.install "DerivedData/Build/Products/Release/objc-diff.1"
   end
 
   test do
